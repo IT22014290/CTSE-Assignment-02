@@ -1,59 +1,59 @@
-# CTSE MAS — Multi-Agent Software Analysis System
+# CTSE MAS — Healthcare Multi-Agent System
 **SE4010 – Cloud Technologies and Software Engineering | Assignment 2**
 
-A locally-hosted **Multi-Agent System (MAS)** that automatically detects code quality bugs, security vulnerabilities, generates fixes, and produces a structured Markdown report — all without any cloud API calls.
+A locally-hosted **Multi-Agent System (MAS)** that automates the full patient-care pipeline: intake, symptom analysis, treatment planning, and report generation — all without any cloud API calls.
 
 ---
 
 ## Team Members & Responsibilities
 
-| Member | Name | Agent | Tool |
-|--------|------|-------|------|
-| Member 1 | Kavindi Perera | Code Analyzer Agent | `static_code_analyzer` |
-| Member 2 | Ravindu Silva | Security Auditor Agent | `security_vulnerability_scanner` |
-| Member 3 | Tharushi Fernando | Fix Suggester Agent | `automated_fix_suggester` |
-| Member 4 | Dilshan Wickramasinghe | Report Generator Agent | `report_generator` |
+| Student ID | Name | Agent | Tool |
+|------------|------|-------|------|
+| IT22248244 | Pandithasundara N B | PatientIntakeAgent | `tool_patient_reader` |
+| IT22014290 | Samishka H T | SymptomAnalyzerAgent | `tool_symptom_analyzer` |
+| IT22333148 | Wijerathne C G T N | TreatmentPlannerAgent | `tool_medication_recommender` |
+| TBD | TBD | MedicalReportAgent | `tool_report_generator` |
 
 ---
 
 ## Problem Domain
 
-**Software Engineering — Automated Code Review & Security Auditing**
+**Healthcare — Automated Patient Intake, Diagnosis & Treatment Pipeline**
 
-Developers push vulnerable code daily. Manual code review is slow and inconsistent. This MAS automates the full cycle: detect → audit → fix → report, giving teams an instant security assessment of any Python file.
+Managing patient records, matching symptoms to conditions, and generating treatment plans are time-intensive tasks prone to human error. This MAS automates the full clinical workflow: load patient data → analyse symptoms → plan treatment → generate report, providing a consistent, structured medical assessment for any patient record.
 
 ---
 
 ## System Architecture
 
 ```
-Input File (Python source)
+Patient JSON File
         │
         ▼
-┌─────────────────────┐
-│  CodeAnalyzerAgent  │  ← Tool: static_code_analyzer
-│  (Member 1)         │    AST + regex bug detection
-└────────┬────────────┘
-         │ GlobalState (raw_bugs, metrics)
-         ▼
+┌────────────────────────┐
+│   PatientIntakeAgent   │  ← Tool: tool_patient_reader
+│   (IT22248244)         │    Validates & loads patient record
+└──────────┬─────────────┘
+           │ GlobalState (patient_info, is_valid, validation_errors)
+           ▼
+┌────────────────────────────┐
+│   SymptomAnalyzerAgent     │  ← Tool: tool_symptom_analyzer
+│   (IT22014290)             │    Matches symptoms → probable conditions
+└──────────┬─────────────────┘
+           │ GlobalState (probable_conditions, confidence_scores)
+           ▼
+┌─────────────────────────────┐
+│   TreatmentPlannerAgent     │  ← Tool: tool_medication_recommender
+│   (IT22333148)              │    Allergy-screened medication plan
+└──────────┬──────────────────┘
+           │ GlobalState (treatment_plan, recommended_medications)
+           ▼
 ┌──────────────────────────┐
-│  SecurityAuditorAgent    │  ← Tool: security_vulnerability_scanner
-│  (Member 2)              │    OWASP Top 10 + CVE mapping
-└────────┬─────────────────┘
-         │ GlobalState (security_issues, cve_references)
-         ▼
-┌──────────────────────┐
-│  FixSuggesterAgent   │  ← Tool: automated_fix_suggester
-│  (Member 3)          │    Rule-based code transformations
-└────────┬─────────────┘
-         │ GlobalState (suggested_fixes, patched_code)
-         ▼
-┌──────────────────────────┐
-│  ReportGeneratorAgent    │  ← Tool: report_generator
-│  (Member 4)              │    Markdown report + LLMOps trace
+│   MedicalReportAgent     │  ← Tool: tool_report_generator
+│   (TBD)                  │    Generates final Markdown report
 └──────────────────────────┘
-         │
-         ▼
+           │
+           ▼
   reports/report_*.md  +  logs/trace_*.json
 ```
 
@@ -65,36 +65,43 @@ Input File (Python source)
 
 ```
 ctse_mas/
-├── main.py                          # Pipeline entry point
-├── sample_buggy_code.py             # Demo file with intentional flaws
+├── main.py                               # Pipeline entry point
+├── sample_buggy_code.py                  # Demo patient record (buggy version)
 ├── requirements.txt
 ├── conftest.py
 │
 ├── config/
-│   ├── state.py                     # GlobalState + state management
-│   └── observability.py             # LLMOps logging & tracing
+│   ├── state.py                          # GlobalState dataclass + reset_state()
+│   └── observability.py                  # LLMOps logging & Rich console tracing
 │
 ├── agents/
-│   ├── agent_code_analyzer.py       # Agent 1 (Member 1)
-│   ├── agent_security_auditor.py    # Agent 2 (Member 2)
-│   ├── agent_fix_suggester.py       # Agent 3 (Member 3)
-│   └── agent_report_generator.py   # Agent 4 (Member 4)
+│   ├── agent_patient_intake.py           # Agent 1 (IT22248244)
+│   ├── agent_symptom_analyzer.py         # Agent 2 (IT22014290)
+│   ├── agent_treatment_planner.py        # Agent 3 (IT22333148)
+│   └── agent_report_generator.py         # Agent 4 (TBD)
 │
 ├── tools/
-│   ├── tool_static_analyzer.py      # Tool 1 (Member 1)
-│   ├── tool_security_scanner.py     # Tool 2 (Member 2)
-│   ├── tool_fix_suggester.py        # Tool 3 (Member 3)
-│   └── tool_report_generator.py    # Tool 4 (Member 4)
+│   ├── tool_patient_reader.py            # Tool 1 (IT22248244)
+│   ├── tool_symptom_analyzer.py          # Tool 2 (IT22014290)
+│   ├── tool_medication_recommender.py    # Tool 3 (IT22333148)
+│   └── tool_report_generator.py          # Tool 4 (TBD)
+│
+├── data/
+│   ├── symptoms_db.json                  # 10 medical conditions
+│   ├── medications_db.json               # 14 medications
+│   └── patients/
+│       ├── patient_PT001.json            # Influenza case
+│       └── patient_PT002.json            # UTI case (with comorbidities)
 │
 ├── tests/
-│   ├── test_agent1_code_analyzer.py     # Member 1 tests (20 tests)
-│   ├── test_agent2_security_auditor.py  # Member 2 tests (25 tests)
-│   ├── test_agent3_fix_suggester.py     # Member 3 tests (21 tests)
-│   ├── test_agent4_report_generator.py  # Member 4 tests (20 tests)
-│   └── test_pipeline_integration.py    # Group unified harness (39 tests)
+│   ├── test_agent1_patient_intake.py     # IT22248244 tests (21 tests)
+│   ├── test_agent2_symptom_analyzer.py   # IT22014290 tests (22 tests)
+│   ├── test_agent3_treatment_planner.py  # IT22333148 tests (21 tests)
+│   ├── test_agent4_report_generator.py   # TBD tests (15 tests)
+│   └── test_pipeline_integration.py     # Group integration harness (19 tests)
 │
-├── reports/                         # Generated Markdown reports
-└── logs/                            # LLMOps JSON traces
+├── reports/                              # Generated Markdown reports
+└── logs/                                 # LLMOps JSON traces
 ```
 
 ---
@@ -103,64 +110,69 @@ ctse_mas/
 
 ### Prerequisites
 - Python 3.10+
-- No paid API keys required
+- No paid API keys required — runs 100% locally
 
-### Install Dependencies
+### Create Virtual Environment & Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate      # Windows: .venv\Scripts\activate
+pip install -r ctse_mas/requirements.txt
 ```
 
 ### Run the Pipeline
 
 ```bash
-# Analyze the sample buggy file
-python main.py --file sample_buggy_code.py
+cd ctse_mas
 
-# Analyze your own file
-python main.py --file path/to/your_code.py
+# Process the default Influenza patient
+python main.py --patient data/patients/patient_PT001.json
+
+# Process the UTI patient (with comorbidities)
+python main.py --patient data/patients/patient_PT002.json
 ```
 
 ### Run All Tests
 
 ```bash
-# All 125 tests
+cd ctse_mas
+
+# Full test suite (98 tests)
 python -m pytest tests/ -v
 
-# Individual member tests
-python -m pytest tests/test_agent1_code_analyzer.py -v    # Member 1
-python -m pytest tests/test_agent2_security_auditor.py -v # Member 2
-python -m pytest tests/test_agent3_fix_suggester.py -v    # Member 3
-python -m pytest tests/test_agent4_report_generator.py -v # Member 4
+# Individual agent tests
+python -m pytest tests/test_agent1_patient_intake.py -v     # IT22248244
+python -m pytest tests/test_agent2_symptom_analyzer.py -v   # IT22014290
+python -m pytest tests/test_agent3_treatment_planner.py -v  # IT22333148
+python -m pytest tests/test_agent4_report_generator.py -v   # TBD
 
-# Full pipeline integration test
+# Full pipeline integration tests
 python -m pytest tests/test_pipeline_integration.py -v
 ```
 
 ---
 
-## What Gets Detected
+## What Each Agent Does
 
-### Code Quality Bugs (Agent 1)
-- `SyntaxError` — invalid Python syntax
-- `BareExcept` — bare `except:` clause
-- `MutableDefaultArgument` — mutable list/dict as default arg
-- `ZeroDivision` — division by zero literal
-- `HardcodedCredential` — password/token in code
-- `AssertInProduction` — assert used for runtime checks
-- `MagicNumber` — unnamed numeric literals
-- `TodoComment` — unresolved TODO/FIXME markers
+### Agent 1 — PatientIntakeAgent (IT22248244)
+- Loads and validates the patient JSON record
+- Checks required fields, age range, blood type, vital signs
+- Populates `GlobalState` with patient demographics, symptoms, and vitals
 
-### Security Vulnerabilities (Agent 2)
-- `SQLInjection` — OWASP A03:2021
-- `CodeInjection` — OWASP A03:2021
-- `InsecureDeserialization` — OWASP A08:2021
-- `WeakCryptography` — OWASP A02:2021
-- `HardcodedSecret` — OWASP A02:2021
-- `TLSVerificationDisabled` — OWASP A02:2021
-- `InsecureRandom` — OWASP A02:2021
-- `DebugModeEnabled` — OWASP A05:2021
-- `UnvalidatedInput` — OWASP A01:2021
+### Agent 2 — SymptomAnalyzerAgent (IT22014290)
+- Matches patient symptoms against `symptoms_db.json` (10 conditions)
+- Scores and ranks probable conditions by confidence percentage
+- Detected conditions include: Influenza, UTI, Pneumonia, COVID-19, Diabetes, and more
+
+### Agent 3 — TreatmentPlannerAgent (IT22333148)
+- Recommends medications from `medications_db.json` (14 medications)
+- Screens against patient allergies before recommending
+- Outputs a safe, structured treatment plan with dosage and duration
+
+### Agent 4 — MedicalReportAgent (TBD)
+- Aggregates all pipeline results from `GlobalState`
+- Generates a structured Markdown report saved to `reports/`
+- Records a full LLMOps execution trace to `logs/`
 
 ---
 
@@ -168,7 +180,7 @@ python -m pytest tests/test_pipeline_integration.py -v
 
 | File | Description |
 |------|-------------|
-| `reports/report_*.md` | Full Markdown security report |
+| `reports/report_*.md` | Full patient medical report in Markdown |
 | `logs/trace_*.json` | LLMOps execution trace (all agent actions, tool calls, timestamps) |
 
 ---
@@ -177,10 +189,10 @@ python -m pytest tests/test_pipeline_integration.py -v
 
 | Requirement | Implementation |
 |-------------|----------------|
-| ✅ 4 Distinct Agents | CodeAnalyzer, SecurityAuditor, FixSuggester, ReportGenerator |
-| ✅ Custom Python Tools | 4 tools with type hints, docstrings, error handling |
-| ✅ State Management | `GlobalState` dataclass passed through all agents |
+| ✅ 4 Distinct Agents | PatientIntakeAgent, SymptomAnalyzerAgent, TreatmentPlannerAgent, MedicalReportAgent |
+| ✅ Custom Python Tools | 4 tools with type hints, docstrings, and error handling |
+| ✅ State Management | `GlobalState` dataclass passed by reference through all agents |
 | ✅ LLMOps / Observability | `observability.py` logs every agent start/end/tool call + JSON trace |
-| ✅ No Paid APIs | Runs entirely locally, no OpenAI/Anthropic keys |
-| ✅ Individual Agent + Tool | Each member owns one agent and one tool |
-| ✅ Testing & Evaluation | 125 tests: property-based, integration, and full pipeline |
+| ✅ No Paid APIs | Runs entirely locally — no OpenAI/Anthropic keys needed |
+| ✅ Individual Agent + Tool | Each member owns one agent and one corresponding tool |
+| ✅ Testing & Evaluation | 98 tests: unit, integration, and full end-to-end pipeline |
