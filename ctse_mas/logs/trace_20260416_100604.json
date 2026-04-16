@@ -1,0 +1,2561 @@
+[
+  {
+    "event": "agent_start",
+    "agent": "CodeAnalyzerAgent",
+    "task": "Static code analysis \u2014 detect bugs, anti-patterns, and compute metrics.",
+    "input_preview": "file_path=/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_populates_raw_bugs0/test.py",
+    "timestamp": "2026-04-16T10:06:04.411941"
+  },
+  {
+    "event": "agent_start",
+    "agent": "CodeAnalyzerAgent",
+    "task": "Static code analysis \u2014 detect bugs, anti-patterns, and compute metrics.",
+    "input_preview": "file_path=/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_populates_metrics0/test.py",
+    "timestamp": "2026-04-16T10:06:04.425342"
+  },
+  {
+    "event": "agent_start",
+    "agent": "CodeAnalyzerAgent",
+    "task": "Static code analysis \u2014 detect bugs, anti-patterns, and compute metrics.",
+    "input_preview": "file_path=/nonexistent/path/file.py",
+    "timestamp": "2026-04-16T10:06:04.427711"
+  },
+  {
+    "event": "agent_start",
+    "agent": "CodeAnalyzerAgent",
+    "task": "Static code analysis \u2014 detect bugs, anti-patterns, and compute metrics.",
+    "input_preview": "file_path=/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_logs_action0/test.py",
+    "timestamp": "2026-04-16T10:06:04.430198"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_populates_patient_i0/patient_TEST.json'",
+    "timestamp": "2026-04-16T10:06:04.441076"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_populates_patient_i0/patient_TEST.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.441367"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Test Patient' (ID: PT999) loaded. Validation: PASSED. Symptoms reported: 4. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.442250"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_sets_is_valid_true_0/patient_TEST.json'",
+    "timestamp": "2026-04-16T10:06:04.443156"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_sets_is_valid_true_0/patient_TEST.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.443376"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Test Patient' (ID: PT999) loaded. Validation: PASSED. Symptoms reported: 4. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.443596"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_sets_is_valid_false0/bad.json'",
+    "timestamp": "2026-04-16T10:06:04.444342"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_sets_is_valid_false0/bad.json",
+    "output": "success=True, valid=False, errors=1",
+    "timestamp": "2026-04-16T10:06:04.444551"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Test Patient' (ID: PT999) loaded. Validation: FAILED. Symptoms reported: 4. Errors: 1.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.444766"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/no/such/file.json'",
+    "timestamp": "2026-04-16T10:06:04.445153"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/no/such/file.json",
+    "output": "success=False, valid=False, errors=1",
+    "timestamp": "2026-04-16T10:06:04.445323"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Unknown' (ID: Unknown) loaded. Validation: FAILED. Symptoms reported: 0. Errors: 1.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.445514"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path=''",
+    "timestamp": "2026-04-16T10:06:04.445893"
+  },
+  {
+    "event": "error",
+    "agent": "PatientIntakeAgent",
+    "error": "No patient_file_path set in state.",
+    "timestamp": "2026-04-16T10:06:04.446052"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_creates_log_entry0/patient_TEST.json'",
+    "timestamp": "2026-04-16T10:06:04.446677"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_creates_log_entry0/patient_TEST.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.446884"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Test Patient' (ID: PT999) loaded. Validation: PASSED. Symptoms reported: 4. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.447088"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.447489"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.447819"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.448047"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SecurityAuditorAgent",
+    "task": "Security audit \u2014 scan for OWASP Top 10 vulnerabilities and CVE patterns.",
+    "input_preview": "source_code_length=20",
+    "timestamp": "2026-04-16T10:06:04.453189"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SecurityAuditorAgent",
+    "tool": "security_vulnerability_scanner",
+    "input": "20 chars",
+    "output": "Found 1 issues, risk=critical, OWASP=['A02:2021'], CVEs=['CVE-2021-37580']",
+    "timestamp": "2026-04-16T10:06:04.453442"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SecurityAuditorAgent",
+    "task": "Security audit \u2014 scan for OWASP Top 10 vulnerabilities and CVE patterns.",
+    "input_preview": "source_code_length=20",
+    "timestamp": "2026-04-16T10:06:04.456053"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SecurityAuditorAgent",
+    "tool": "security_vulnerability_scanner",
+    "input": "20 chars",
+    "output": "Found 1 issues, risk=critical, OWASP=['A02:2021'], CVEs=['CVE-2021-37580']",
+    "timestamp": "2026-04-16T10:06:04.456254"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SecurityAuditorAgent",
+    "task": "Security audit \u2014 scan for OWASP Top 10 vulnerabilities and CVE patterns.",
+    "input_preview": "source_code_length=0",
+    "timestamp": "2026-04-16T10:06:04.458466"
+  },
+  {
+    "event": "error",
+    "agent": "SecurityAuditorAgent",
+    "error": "source_code is empty \u2014 Code Analyzer must run first.",
+    "timestamp": "2026-04-16T10:06:04.458648"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SecurityAuditorAgent",
+    "task": "Security audit \u2014 scan for OWASP Top 10 vulnerabilities and CVE patterns.",
+    "input_preview": "source_code_length=17",
+    "timestamp": "2026-04-16T10:06:04.458987"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SecurityAuditorAgent",
+    "tool": "security_vulnerability_scanner",
+    "input": "17 chars",
+    "output": "Found 1 issues, risk=critical, OWASP=['A02:2021'], CVEs=['CVE-2021-37580']",
+    "timestamp": "2026-04-16T10:06:04.459171"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_populates_possible_0/patient_TEST.json'",
+    "timestamp": "2026-04-16T10:06:04.467298"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_populates_possible_0/patient_TEST.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.467546"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Test Patient' (ID: PT999) loaded. Validation: PASSED. Symptoms reported: 4. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.467765"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Test Patient', symptoms=['high fever', 'body aches', 'fatigue', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.467940"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'fatigue', 'chills']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.468187"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (28.6%), Pneumonia (23.1%), Common Cold (9.1%). Risk level: CRITICAL. Emergency flags: ['high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.468474"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_sets_top_diagnosis0/patient_TEST.json'",
+    "timestamp": "2026-04-16T10:06:04.469211"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_sets_top_diagnosis0/patient_TEST.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.469419"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Test Patient' (ID: PT999) loaded. Validation: PASSED. Symptoms reported: 4. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.469624"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Test Patient', symptoms=['high fever', 'body aches', 'fatigue', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.469787"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'fatigue', 'chills']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.470015"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (28.6%), Pneumonia (23.1%), Common Cold (9.1%). Risk level: CRITICAL. Emergency flags: ['high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.470263"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_sets_risk_level0/patient_TEST.json'",
+    "timestamp": "2026-04-16T10:06:04.471080"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_sets_risk_level0/patient_TEST.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.471294"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Test Patient' (ID: PT999) loaded. Validation: PASSED. Symptoms reported: 4. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.471493"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Test Patient', symptoms=['high fever', 'body aches', 'fatigue', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.471656"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'fatigue', 'chills']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.471900"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (28.6%), Pneumonia (23.1%), Common Cold (9.1%). Risk level: CRITICAL. Emergency flags: ['high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.472154"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Unknown', symptoms=[]",
+    "timestamp": "2026-04-16T10:06:04.472546"
+  },
+  {
+    "event": "error",
+    "agent": "SymptomAnalyzerAgent",
+    "error": "patient_info is empty \u2014 PatientIntakeAgent must run first.",
+    "timestamp": "2026-04-16T10:06:04.472710"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_creates_log_entry1/patient_TEST.json'",
+    "timestamp": "2026-04-16T10:06:04.473530"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/private/var/folders/l7/5z0wp_2x3p7321r_ygyrnxd80000gn/T/pytest-of-sami/pytest-0/test_agent_creates_log_entry1/patient_TEST.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.473731"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Test Patient' (ID: PT999) loaded. Validation: PASSED. Symptoms reported: 4. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.473930"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Test Patient', symptoms=['high fever', 'body aches', 'fatigue', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.474097"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'fatigue', 'chills']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.474333"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (28.6%), Pneumonia (23.1%), Common Cold (9.1%). Risk level: CRITICAL. Emergency flags: ['high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.474576"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json'",
+    "timestamp": "2026-04-16T10:06:04.474976"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.475298"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Roshan Fernando' (ID: PT002) loaded. Validation: PASSED. Symptoms reported: 6. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.475517"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Roshan Fernando', symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "timestamp": "2026-04-16T10:06:04.475681"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=[]",
+    "timestamp": "2026-04-16T10:06:04.475941"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Urinary Tract Infection (54.5%), Common Cold (9.1%), Type 2 Diabetes (9.1%). Risk level: CRITICAL. Emergency flags: none.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.476200"
+  },
+  {
+    "event": "agent_start",
+    "agent": "FixSuggesterAgent",
+    "task": "Fix suggestion \u2014 generate and apply code fixes for all detected issues.",
+    "input_preview": "bugs=1, security_issues=0",
+    "timestamp": "2026-04-16T10:06:04.479800"
+  },
+  {
+    "event": "tool_call",
+    "agent": "FixSuggesterAgent",
+    "tool": "automated_fix_suggester",
+    "input": "bugs=1, security=0",
+    "output": "Generated 1 fixes, 1 auto-applied.",
+    "timestamp": "2026-04-16T10:06:04.480007"
+  },
+  {
+    "event": "agent_end",
+    "agent": "FixSuggesterAgent",
+    "output_preview": "Fix generation complete. 1 fix(es) generated, 1 auto-applied. Average confidence: 95%.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.480215"
+  },
+  {
+    "event": "agent_start",
+    "agent": "FixSuggesterAgent",
+    "task": "Fix suggestion \u2014 generate and apply code fixes for all detected issues.",
+    "input_preview": "bugs=1, security_issues=0",
+    "timestamp": "2026-04-16T10:06:04.480583"
+  },
+  {
+    "event": "tool_call",
+    "agent": "FixSuggesterAgent",
+    "tool": "automated_fix_suggester",
+    "input": "bugs=1, security=0",
+    "output": "Generated 1 fixes, 1 auto-applied.",
+    "timestamp": "2026-04-16T10:06:04.480771"
+  },
+  {
+    "event": "agent_end",
+    "agent": "FixSuggesterAgent",
+    "output_preview": "Fix generation complete. 1 fix(es) generated, 1 auto-applied. Average confidence: 95%.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.480959"
+  },
+  {
+    "event": "agent_start",
+    "agent": "FixSuggesterAgent",
+    "task": "Fix suggestion \u2014 generate and apply code fixes for all detected issues.",
+    "input_preview": "bugs=0, security_issues=0",
+    "timestamp": "2026-04-16T10:06:04.481313"
+  },
+  {
+    "event": "agent_end",
+    "agent": "FixSuggesterAgent",
+    "output_preview": "No issues to fix \u2014 skipping.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.481481"
+  },
+  {
+    "event": "agent_start",
+    "agent": "FixSuggesterAgent",
+    "task": "Fix suggestion \u2014 generate and apply code fixes for all detected issues.",
+    "input_preview": "bugs=1, security_issues=0",
+    "timestamp": "2026-04-16T10:06:04.481831"
+  },
+  {
+    "event": "tool_call",
+    "agent": "FixSuggesterAgent",
+    "tool": "automated_fix_suggester",
+    "input": "bugs=1, security=0",
+    "output": "Generated 1 fixes, 1 auto-applied.",
+    "timestamp": "2026-04-16T10:06:04.482004"
+  },
+  {
+    "event": "agent_end",
+    "agent": "FixSuggesterAgent",
+    "output_preview": "Fix generation complete. 1 fix(es) generated, 1 auto-applied. Average confidence: 95%.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.482189"
+  },
+  {
+    "event": "agent_start",
+    "agent": "FixSuggesterAgent",
+    "task": "Fix suggestion \u2014 generate and apply code fixes for all detected issues.",
+    "input_preview": "bugs=1, security_issues=0",
+    "timestamp": "2026-04-16T10:06:04.482551"
+  },
+  {
+    "event": "tool_call",
+    "agent": "FixSuggesterAgent",
+    "tool": "automated_fix_suggester",
+    "input": "bugs=1, security=0",
+    "output": "Generated 1 fixes, 1 auto-applied.",
+    "timestamp": "2026-04-16T10:06:04.482723"
+  },
+  {
+    "event": "agent_end",
+    "agent": "FixSuggesterAgent",
+    "output_preview": "Fix generation complete. 1 fix(es) generated, 1 auto-applied. Average confidence: 95%.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.482907"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.487436"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.487697"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.487940"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.488120"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.488415"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.488696"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.488867"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.489127"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.489404"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.489818"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.490026"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.490242"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.490403"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.490672"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.490928"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.491089"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.491326"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.491577"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.491963"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.492154"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.492364"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.492523"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.492777"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.493031"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.493191"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.493424"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.493671"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json'",
+    "timestamp": "2026-04-16T10:06:04.494050"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.494242"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Roshan Fernando' (ID: PT002) loaded. Validation: PASSED. Symptoms reported: 6. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.494450"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Roshan Fernando', symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "timestamp": "2026-04-16T10:06:04.494608"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=[]",
+    "timestamp": "2026-04-16T10:06:04.494847"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Urinary Tract Infection (54.5%), Common Cold (9.1%), Type 2 Diabetes (9.1%). Risk level: CRITICAL. Emergency flags: none.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.495095"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Urinary Tract Infection', 'Common Cold', 'Type 2 Diabetes'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "timestamp": "2026-04-16T10:06:04.495255"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Urinary Tract Infection', 'Common Cold'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.495500"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Urinary Tract Infection', 'Common Cold']. Medications recommended (3): Paracetamol, Ibuprofen, Amoxicillin. Contraindicated: 1. Lifestyle tips: 7.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.495738"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=[], allergies=[], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.496108"
+  },
+  {
+    "event": "error",
+    "agent": "TreatmentPlannerAgent",
+    "error": "No conditions in state \u2014 SymptomAnalyzerAgent must run first.",
+    "timestamp": "2026-04-16T10:06:04.496273"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.496625"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.496814"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.497028"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.497184"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.497437"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.497688"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.497845"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.498080"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.498326"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.498702"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.498890"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.499097"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.499252"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.499502"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.499753"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.499909"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.500144"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.500388"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.507610"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.507861"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.508102"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.508277"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.508567"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.508838"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.509005"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.509265"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.509524"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.509688"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.510032"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.510270"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.526743"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.526947"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.527165"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.527326"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.527584"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.527838"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.527995"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.528229"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.528476"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.528635"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.528970"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.529190"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.546986"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.547228"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.547463"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.547630"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.547902"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.548165"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.548328"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.548574"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.548827"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.548987"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.549331"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.549553"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.568097"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.568307"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.568589"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.568804"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.569138"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.569479"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.569670"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.569954"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.570215"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.570379"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.570708"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.570939"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.593425"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.593641"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.593865"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.594029"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.594297"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.594557"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.594718"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.594963"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.595229"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.595388"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.595736"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.595955"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.616548"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.616773"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.617013"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.617197"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.617486"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.617751"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.617919"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.618189"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.618488"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.618796"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.619144"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.619379"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.640993"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.641210"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.641441"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.641614"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.641888"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.642156"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.642320"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.642577"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.642853"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.643035"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.643373"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.643614"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.667216"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.667453"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.667682"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.667852"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.668126"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.668410"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.668678"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.669049"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.669319"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.669492"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.669872"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.670114"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.695010"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.695243"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.695489"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.695661"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.695934"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.696216"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.696386"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.696639"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.696896"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.697073"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.697623"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.697854"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.723455"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.723695"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.723933"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.724104"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.724384"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.724654"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.724828"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.725086"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.725348"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.725508"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.725921"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.726154"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.752521"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.752749"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.752975"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.753141"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.753414"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.753679"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.753849"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.754089"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.754343"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.754502"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.754807"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.755028"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.782832"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.783067"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.783305"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.783479"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.783759"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.784027"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.784193"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.784443"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.784701"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.784865"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.785232"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.785478"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.814590"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.814833"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.815069"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.815239"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.815529"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.815816"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.815981"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.816229"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.816485"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.816646"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.816973"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.817213"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json'",
+    "timestamp": "2026-04-16T10:06:04.847802"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT001.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.848022"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Amara Perera' (ID: PT001) loaded. Validation: PASSED. Symptoms reported: 8. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.848255"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Amara Perera', symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "timestamp": "2026-04-16T10:06:04.848429"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['high fever', 'body aches', 'severe fatigue', 'chills', 'dry cough', 'headache', 'loss of appetite', 'sweating']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=['headache', 'high fever', 'chills']",
+    "timestamp": "2026-04-16T10:06:04.848725"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Influenza (57.1%), Pneumonia (46.2%), Common Cold (18.2%). Risk level: CRITICAL. Emergency flags: ['headache', 'high fever', 'chills'].",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.848990"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Influenza', 'Pneumonia', 'Common Cold'], allergies=['penicillin'], current_meds=[]",
+    "timestamp": "2026-04-16T10:06:04.849159"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Influenza', 'Pneumonia'], allergies=['penicillin'], current_meds=[]",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.849416"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Influenza', 'Pneumonia']. Medications recommended (3): Paracetamol, Ibuprofen, Oseltamivir. Contraindicated: 1. Lifestyle tips: 8.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.849687"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Amara Perera', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.849854"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT001, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT001_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.850190"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT001_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.850413"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json'",
+    "timestamp": "2026-04-16T10:06:04.881249"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.881469"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Roshan Fernando' (ID: PT002) loaded. Validation: PASSED. Symptoms reported: 6. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.881698"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Roshan Fernando', symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "timestamp": "2026-04-16T10:06:04.881877"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=[]",
+    "timestamp": "2026-04-16T10:06:04.882154"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Urinary Tract Infection (54.5%), Common Cold (9.1%), Type 2 Diabetes (9.1%). Risk level: CRITICAL. Emergency flags: none.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.882409"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Urinary Tract Infection', 'Common Cold', 'Type 2 Diabetes'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "timestamp": "2026-04-16T10:06:04.882575"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Urinary Tract Infection', 'Common Cold'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.882838"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Urinary Tract Infection', 'Common Cold']. Medications recommended (3): Paracetamol, Ibuprofen, Amoxicillin. Contraindicated: 1. Lifestyle tips: 7.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.883088"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Roshan Fernando', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.883258"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT002, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT002_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.883611"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT002_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.883843"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json'",
+    "timestamp": "2026-04-16T10:06:04.916519"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.916728"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Roshan Fernando' (ID: PT002) loaded. Validation: PASSED. Symptoms reported: 6. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.916957"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Roshan Fernando', symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "timestamp": "2026-04-16T10:06:04.917135"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=[]",
+    "timestamp": "2026-04-16T10:06:04.917398"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Urinary Tract Infection (54.5%), Common Cold (9.1%), Type 2 Diabetes (9.1%). Risk level: CRITICAL. Emergency flags: none.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.917652"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Urinary Tract Infection', 'Common Cold', 'Type 2 Diabetes'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "timestamp": "2026-04-16T10:06:04.917826"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Urinary Tract Infection', 'Common Cold'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.918083"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Urinary Tract Infection', 'Common Cold']. Medications recommended (3): Paracetamol, Ibuprofen, Amoxicillin. Contraindicated: 1. Lifestyle tips: 7.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.918348"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Roshan Fernando', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.918547"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT002, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT002_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.918841"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT002_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.919064"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json'",
+    "timestamp": "2026-04-16T10:06:04.952270"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.952506"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Roshan Fernando' (ID: PT002) loaded. Validation: PASSED. Symptoms reported: 6. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.952735"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Roshan Fernando', symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "timestamp": "2026-04-16T10:06:04.952901"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=[]",
+    "timestamp": "2026-04-16T10:06:04.953160"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Urinary Tract Infection (54.5%), Common Cold (9.1%), Type 2 Diabetes (9.1%). Risk level: CRITICAL. Emergency flags: none.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.953424"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Urinary Tract Infection', 'Common Cold', 'Type 2 Diabetes'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "timestamp": "2026-04-16T10:06:04.953604"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Urinary Tract Infection', 'Common Cold'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.953865"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Urinary Tract Infection', 'Common Cold']. Medications recommended (3): Paracetamol, Ibuprofen, Amoxicillin. Contraindicated: 1. Lifestyle tips: 7.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.954106"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Roshan Fernando', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.954275"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT002, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT002_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.954600"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT002_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.954831"
+  },
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json'",
+    "timestamp": "2026-04-16T10:06:04.990251"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "/Users/sami/Documents/Y4S2/CTSE/Assignment 2/ctse_mas/data/patients/patient_PT002.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:06:04.990480"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Roshan Fernando' (ID: PT002) loaded. Validation: PASSED. Symptoms reported: 6. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.990706"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Roshan Fernando', symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "timestamp": "2026-04-16T10:06:04.990871"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=[]",
+    "timestamp": "2026-04-16T10:06:04.991129"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Urinary Tract Infection (54.5%), Common Cold (9.1%), Type 2 Diabetes (9.1%). Risk level: CRITICAL. Emergency flags: none.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.991380"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Urinary Tract Infection', 'Common Cold', 'Type 2 Diabetes'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "timestamp": "2026-04-16T10:06:04.991543"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Urinary Tract Infection', 'Common Cold'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:06:04.991795"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Urinary Tract Infection', 'Common Cold']. Medications recommended (3): Paracetamol, Ibuprofen, Amoxicillin. Contraindicated: 1. Lifestyle tips: 7.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.992033"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Roshan Fernando', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:06:04.992195"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT002, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT002_medical_report_20260416_100604.md'",
+    "timestamp": "2026-04-16T10:06:04.992504"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT002_medical_report_20260416_100604.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:06:04.992730"
+  }
+]

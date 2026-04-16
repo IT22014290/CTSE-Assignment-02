@@ -1,0 +1,366 @@
+{
+  "file_path": "sample_buggy_code.py",
+  "language": "python",
+  "raw_bugs": [
+    {
+      "line": 24,
+      "type": "MutableDefaultArgument",
+      "description": "Function 'add_user_to_list' uses mutable default argument \u2014 shared across all calls, leading to unexpected state.",
+      "severity": "high",
+      "code_snippet": "def add_user_to_list(user, user_list=[]):"
+    },
+    {
+      "line": 70,
+      "type": "AssertInProduction",
+      "description": "Using 'assert' for runtime checks \u2014 asserts are stripped when Python runs with -O flag.",
+      "severity": "medium",
+      "code_snippet": "    assert amount > 0, \"Amount must be positive\"  # Stripped by -O flag!"
+    },
+    {
+      "line": 33,
+      "type": "BareExcept",
+      "description": "Bare 'except:' catches all exceptions including SystemExit and KeyboardInterrupt \u2014 use 'except Exception'.",
+      "severity": "medium",
+      "code_snippet": "    except:"
+    },
+    {
+      "line": 40,
+      "type": "ZeroDivision",
+      "description": "Explicit division by zero literal detected.",
+      "severity": "critical",
+      "code_snippet": "    return total / 0"
+    },
+    {
+      "line": 17,
+      "type": "HardcodedCredential",
+      "description": "Possible hardcoded credential detected \u2014 use environment variables.",
+      "severity": "critical",
+      "code_snippet": "password = \"supersecret123\""
+    },
+    {
+      "line": 18,
+      "type": "HardcodedCredential",
+      "description": "Possible hardcoded credential detected \u2014 use environment variables.",
+      "severity": "critical",
+      "code_snippet": "api_key = \"sk-prod-abc123456789\""
+    },
+    {
+      "line": 62,
+      "type": "MagicNumber",
+      "description": "Magic number '100000' \u2014 consider using a named constant.",
+      "severity": "low",
+      "code_snippet": "return str(random.randint(100000, 999999))"
+    },
+    {
+      "line": 71,
+      "type": "TodoComment",
+      "description": "Unresolved marker found: return amount * 1.15  # TODO: apply discount logic here",
+      "severity": "low",
+      "code_snippet": "return amount * 1.15  # TODO: apply discount logic here"
+    },
+    {
+      "line": 71,
+      "type": "MagicNumber",
+      "description": "Magic number '15' \u2014 consider using a named constant.",
+      "severity": "low",
+      "code_snippet": "return amount * 1.15  # TODO: apply discount logic here"
+    },
+    {
+      "line": 81,
+      "type": "MagicNumber",
+      "description": "Magic number '5000' \u2014 consider using a named constant.",
+      "severity": "low",
+      "code_snippet": "if price > 5000:          # Magic: what is 5000?"
+    },
+    {
+      "line": 82,
+      "type": "MagicNumber",
+      "description": "Magic number '85' \u2014 consider using a named constant.",
+      "severity": "low",
+      "code_snippet": "return price * 0.85   # Magic: what is 0.85?"
+    },
+    {
+      "line": 83,
+      "type": "MagicNumber",
+      "description": "Magic number '1500' \u2014 consider using a named constant.",
+      "severity": "low",
+      "code_snippet": "elif price > 1500:        # Magic: what is 1500?"
+    },
+    {
+      "line": 84,
+      "type": "MagicNumber",
+      "description": "Magic number '90' \u2014 consider using a named constant.",
+      "severity": "low",
+      "code_snippet": "return price * 0.90   # Magic: what is 0.90?"
+    },
+    {
+      "line": 101,
+      "type": "MagicNumber",
+      "description": "Magic number '6000' \u2014 consider using a named constant.",
+      "severity": "low",
+      "code_snippet": "print(apply_discount(6000))"
+    }
+  ],
+  "security_issues": [
+    {
+      "line": 17,
+      "type": "HardcodedSecret",
+      "owasp": "A02:2021",
+      "severity": "critical",
+      "description": "Hardcoded secret/credential detected \u2014 store in environment variables or a vault.",
+      "code_snippet": "password = \"supersecret123\"",
+      "remediation": "Move secrets to .env files and load via os.environ.get()."
+    },
+    {
+      "line": 18,
+      "type": "HardcodedSecret",
+      "owasp": "A02:2021",
+      "severity": "critical",
+      "description": "Hardcoded secret/credential detected \u2014 store in environment variables or a vault.",
+      "code_snippet": "api_key = \"sk-prod-abc123456789\"",
+      "remediation": "Move secrets to .env files and load via os.environ.get()."
+    },
+    {
+      "line": 21,
+      "type": "DebugModeEnabled",
+      "owasp": "A05:2021",
+      "severity": "high",
+      "description": "Debug mode enabled in application \u2014 discloses stack traces and sensitive info.",
+      "code_snippet": "DEBUG = True  # Security: DebugModeEnabled, OWASP A05",
+      "remediation": "Set DEBUG=False in production; use environment-based config."
+    },
+    {
+      "line": 44,
+      "type": "WeakCryptography",
+      "owasp": "A02:2021",
+      "severity": "high",
+      "description": "Weak hashing algorithm (MD5/SHA1) detected \u2014 use SHA-256 or bcrypt for passwords.",
+      "code_snippet": "return hashlib.MD5(pw.encode()).hexdigest()",
+      "remediation": "Use hashlib.sha256() or bcrypt for password hashing."
+    },
+    {
+      "line": 52,
+      "type": "SQLInjection",
+      "owasp": "A03:2021",
+      "severity": "critical",
+      "description": "Possible SQL injection via string concatenation \u2014 use parameterized queries.",
+      "code_snippet": "query = \"SELECT * FROM users WHERE name = '\" + user + \"'\"  # noqa",
+      "remediation": "Use parameterized queries: cursor.execute(sql, (param,))"
+    },
+    {
+      "line": 58,
+      "type": "InsecureDeserialization",
+      "owasp": "A08:2021",
+      "severity": "critical",
+      "description": "Deserialization of untrusted data via pickle \u2014 use JSON or authenticated serialization.",
+      "code_snippet": "return pickle.loads(session_bytes)",
+      "remediation": "Replace pickle with json.loads() or a signed serialization format."
+    },
+    {
+      "line": 62,
+      "type": "InsecureRandom",
+      "owasp": "A02:2021",
+      "severity": "medium",
+      "description": "Non-cryptographic random used \u2014 use 'secrets' module for security-sensitive values.",
+      "code_snippet": "return str(random.randint(100000, 999999))",
+      "remediation": "Replace random with the 'secrets' module for security-sensitive values."
+    },
+    {
+      "line": 66,
+      "type": "CodeInjection",
+      "owasp": "A03:2021",
+      "severity": "critical",
+      "description": "Potential code/command injection \u2014 user input must NEVER reach exec/eval/system calls.",
+      "code_snippet": "exec(user_input)",
+      "remediation": "Avoid exec/eval on user input; use ast.literal_eval for safe parsing."
+    },
+    {
+      "line": 77,
+      "type": "TLSVerificationDisabled",
+      "owasp": "A02:2021",
+      "severity": "high",
+      "description": "SSL/TLS certificate verification is disabled \u2014 MITM attacks are possible.",
+      "code_snippet": "return requests.get(url, verify=False)  # MITM attack possible!",
+      "remediation": "Remove verify=False; configure proper CA bundle."
+    },
+    {
+      "line": 93,
+      "type": "UnvalidatedInput",
+      "owasp": "A01:2021",
+      "severity": "medium",
+      "description": "User-supplied input used directly \u2014 validate and sanitize before use.",
+      "code_snippet": "user_id = flask_request.args[\"user_id\"]  # No validation!",
+      "remediation": "Validate input length, type, and allowed characters before use."
+    }
+  ],
+  "suggested_fixes": [
+    {
+      "line": 24,
+      "type": "MutableDefaultArgument",
+      "original": "def add_user_to_list(user, user_list=[]):",
+      "fixed": "def add_user_to_list(user, user_list= None  # was: [] (mutable default)):",
+      "explanation": "Replace mutable default with None and initialize inside the function body:\n    if param is None:\n        param = []",
+      "confidence": 0.85,
+      "auto_applicable": true
+    },
+    {
+      "line": 70,
+      "type": "AssertInProduction",
+      "original": "    assert amount > 0, \"Amount must be positive\"  # Stripped by -O flag!",
+      "fixed": "    if not (amount > 0): raise AssertionError(, \"Amount must be positive\"  # Stripped by -O flag!)",
+      "explanation": "Replace assert statements with explicit conditional raises \u2014 assert is stripped when Python is run with -O (optimize) flag.",
+      "confidence": 0.8,
+      "auto_applicable": true
+    },
+    {
+      "line": 33,
+      "type": "BareExcept",
+      "original": "    except:",
+      "fixed": "    except Exception:",
+      "explanation": "Replace bare 'except:' with 'except Exception:' to avoid swallowing system-level exceptions like KeyboardInterrupt.",
+      "confidence": 0.95,
+      "auto_applicable": true
+    },
+    {
+      "line": 40,
+      "type": "ZeroDivision",
+      "original": "    return total / 0",
+      "fixed": "    # FIX: Guard against division by zero\n    if divisor != 0:\n        result = numerator / divisor\n    else:\n        result = None  # or raise ValueError",
+      "explanation": "Wrap division in a zero-guard conditional before performing the operation.",
+      "confidence": 0.9,
+      "auto_applicable": false
+    },
+    {
+      "line": 17,
+      "type": "HardcodedCredential",
+      "original": "password = \"supersecret123\"",
+      "fixed": "password = os.environ.get(\"PASSWORD\")",
+      "explanation": "Load secrets from environment variables. Add 'import os' at the top and store the value in a .env file (never commit to version control).",
+      "confidence": 0.92,
+      "auto_applicable": true
+    },
+    {
+      "line": 18,
+      "type": "HardcodedCredential",
+      "original": "api_key = \"sk-prod-abc123456789\"",
+      "fixed": "api_key = os.environ.get(\"API_KEY\")",
+      "explanation": "Load secrets from environment variables. Add 'import os' at the top and store the value in a .env file (never commit to version control).",
+      "confidence": 0.92,
+      "auto_applicable": true
+    },
+    {
+      "line": 17,
+      "type": "HardcodedSecret",
+      "original": "password = \"supersecret123\"",
+      "fixed": "password = os.environ.get(\"PASSWORD\")",
+      "explanation": "Store secrets in environment variables or a secrets manager (e.g., AWS Secrets Manager).",
+      "confidence": 0.92,
+      "auto_applicable": true
+    },
+    {
+      "line": 18,
+      "type": "HardcodedSecret",
+      "original": "api_key = \"sk-prod-abc123456789\"",
+      "fixed": "api_key = os.environ.get(\"API_KEY\")",
+      "explanation": "Store secrets in environment variables or a secrets manager (e.g., AWS Secrets Manager).",
+      "confidence": 0.92,
+      "auto_applicable": true
+    },
+    {
+      "line": 21,
+      "type": "DebugModeEnabled",
+      "original": "DEBUG = True  # Security: DebugModeEnabled, OWASP A05",
+      "fixed": "DEBUG = os.environ.get(\"DEBUG\", \"False\") == \"True\"  # Security: DebugModeEnabled, OWASP A05",
+      "explanation": "Control debug mode via environment variable \u2014 never hardcode True in production.",
+      "confidence": 0.9,
+      "auto_applicable": true
+    },
+    {
+      "line": 44,
+      "type": "WeakCryptography",
+      "original": "return hashlib.MD5(pw.encode()).hexdigest()",
+      "fixed": "return hashlib.hashlib.sha256(pw.encode()).hexdigest()",
+      "explanation": "Replace MD5/SHA1 with SHA-256 for data integrity, or bcrypt/argon2 for passwords.",
+      "confidence": 0.88,
+      "auto_applicable": true
+    },
+    {
+      "line": 52,
+      "type": "SQLInjection",
+      "original": "query = \"SELECT * FROM users WHERE name = '\" + user + \"'\"  # noqa",
+      "fixed": "# FIX: Use parameterized query\ncursor.execute('SELECT * FROM table WHERE id = %s', (user_input,))",
+      "explanation": "NEVER concatenate user input into SQL strings. Use parameterized queries or an ORM (SQLAlchemy, Django ORM) to prevent SQL injection.",
+      "confidence": 0.7,
+      "auto_applicable": false
+    },
+    {
+      "line": 62,
+      "type": "InsecureRandom",
+      "original": "return str(random.randint(100000, 999999))",
+      "fixed": "return str(secrets.randint(100000, 999999))",
+      "explanation": "Replace the 'random' module with the 'secrets' module for cryptographically secure random number generation.",
+      "confidence": 0.85,
+      "auto_applicable": true
+    },
+    {
+      "line": 77,
+      "type": "TLSVerificationDisabled",
+      "original": "return requests.get(url, verify=False)  # MITM attack possible!",
+      "fixed": "return requests.get(url, verify=True)  # MITM attack possible!",
+      "explanation": "Re-enable SSL verification. If using a custom CA, pass verify='/path/to/ca-bundle.crt'.",
+      "confidence": 0.97,
+      "auto_applicable": true
+    }
+  ],
+  "total_issues_found": 24,
+  "total_fixes_applied": 11,
+  "pipeline_start": "2026-04-11T03:52:05.354475",
+  "pipeline_end": "2026-04-11T03:52:05.404146",
+  "agent_logs": [
+    {
+      "agent": "CodeAnalyzerAgent",
+      "action": "Static code analysis \u2014 detect bugs, anti-patterns, and compute metrics.",
+      "input": "file=sample_buggy_code.py, lang=python",
+      "output": "Detected 14 code issues. Metrics: LOC=101, functions=12.",
+      "tools": [
+        "file_read",
+        "static_code_analyzer"
+      ],
+      "status": "success",
+      "timestamp": "2026-04-11T03:52:05.360739"
+    },
+    {
+      "agent": "SecurityAuditorAgent",
+      "action": "Security audit \u2014 scan for OWASP Top 10 vulnerabilities and CVE patterns.",
+      "input": "source_code=3247 chars",
+      "output": "Security scan complete. 10 vulnerability(ies) found. Risk level: CRITICAL. OWASP categories: A01:2021, A02:2021, A03:2021, A05:2021, A08:2021. CVEs: CVE-2014-0160, CVE-2016-2183, CVE-2017-16516, CVE-2019-0232, CVE-2020-14145, CVE-2021-37580, CVE-2021-41773, CVE-2021-44228, CVE-2022-22965, CVE-2022-26134, CVE-2023-23638.",
+      "tools": [
+        "security_vulnerability_scanner"
+      ],
+      "status": "success",
+      "timestamp": "2026-04-11T03:52:05.364911"
+    },
+    {
+      "agent": "FixSuggesterAgent",
+      "action": "Fix suggestion \u2014 generate and apply code fixes for all detected issues.",
+      "input": "bugs=14, security=10",
+      "output": "Fix generation complete. 13 fix(es) generated, 11 auto-applied. Average confidence: 88%.",
+      "tools": [
+        "automated_fix_suggester"
+      ],
+      "status": "success",
+      "timestamp": "2026-04-11T03:52:05.368235"
+    },
+    {
+      "agent": "ReportGeneratorAgent",
+      "action": "Report generation \u2014 synthesize all agent outputs into a structured Markdown report.",
+      "input": "bugs=14, sec=10",
+      "output": "Report generated: /home/claude/ctse_mas/reports/report_sample_buggy_code_py_20260411_035205.md. Bugs: 14, Security: 10, Fixes: 13.",
+      "tools": [
+        "report_generator"
+      ],
+      "status": "success",
+      "timestamp": "2026-04-11T03:52:05.370887"
+    }
+  ]
+}

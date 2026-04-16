@@ -1,0 +1,90 @@
+[
+  {
+    "event": "agent_start",
+    "agent": "PatientIntakeAgent",
+    "task": "Load and validate patient JSON record from disk.",
+    "input_preview": "patient_file_path='data/patients/patient_PT002.json'",
+    "timestamp": "2026-04-16T10:05:51.417557"
+  },
+  {
+    "event": "tool_call",
+    "agent": "PatientIntakeAgent",
+    "tool": "patient_record_reader",
+    "input": "data/patients/patient_PT002.json",
+    "output": "success=True, valid=True, errors=0",
+    "timestamp": "2026-04-16T10:05:51.417998"
+  },
+  {
+    "event": "agent_end",
+    "agent": "PatientIntakeAgent",
+    "output_preview": "Patient 'Roshan Fernando' (ID: PT002) loaded. Validation: PASSED. Symptoms reported: 6. Errors: 0.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:05:51.419054"
+  },
+  {
+    "event": "agent_start",
+    "agent": "SymptomAnalyzerAgent",
+    "task": "Analyse patient symptoms and produce ranked differential diagnosis.",
+    "input_preview": "patient='Roshan Fernando', symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "timestamp": "2026-04-16T10:05:51.419325"
+  },
+  {
+    "event": "tool_call",
+    "agent": "SymptomAnalyzerAgent",
+    "tool": "symptom_analyzer",
+    "input": "symptoms=['burning urination', 'frequent urination', 'cloudy urine', 'pelvic pain', 'low grade fever', 'urgency to urinate']",
+    "output": "success=True, conditions_found=5, risk=critical, emergency_flags=[]",
+    "timestamp": "2026-04-16T10:05:51.419804"
+  },
+  {
+    "event": "agent_end",
+    "agent": "SymptomAnalyzerAgent",
+    "output_preview": "Analysis complete. 5 condition(s) matched. Top diagnoses: Urinary Tract Infection (54.5%), Common Cold (9.1%), Type 2 Diabetes (9.1%). Risk level: CRITICAL. Emergency flags: none.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:05:51.420132"
+  },
+  {
+    "event": "agent_start",
+    "agent": "TreatmentPlannerAgent",
+    "task": "Generate a personalised, allergy-screened pharmacological treatment plan.",
+    "input_preview": "conditions=['Urinary Tract Infection', 'Common Cold', 'Type 2 Diabetes'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "timestamp": "2026-04-16T10:05:51.420334"
+  },
+  {
+    "event": "tool_call",
+    "agent": "TreatmentPlannerAgent",
+    "tool": "medication_recommender",
+    "input": "conditions=['Urinary Tract Infection', 'Common Cold'], allergies=['sulfonamide'], current_meds=['metformin', 'lisinopril']",
+    "output": "success=True, recommended=3, contraindicated=1",
+    "timestamp": "2026-04-16T10:05:51.420772"
+  },
+  {
+    "event": "agent_end",
+    "agent": "TreatmentPlannerAgent",
+    "output_preview": "Treatment plan complete. Conditions targeted: ['Urinary Tract Infection', 'Common Cold']. Medications recommended (3): Paracetamol, Ibuprofen, Amoxicillin. Contraindicated: 1. Lifestyle tips: 7.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:05:51.421062"
+  },
+  {
+    "event": "agent_start",
+    "agent": "MedicalReportAgent",
+    "task": "Synthesise all pipeline outputs into a structured Markdown medical report.",
+    "input_preview": "patient='Roshan Fernando', conditions=5, medications=3",
+    "timestamp": "2026-04-16T10:05:51.421249"
+  },
+  {
+    "event": "tool_call",
+    "agent": "MedicalReportAgent",
+    "tool": "medical_report_generator",
+    "input": "patient=PT002, conditions=5, medications=3",
+    "output": "success=True, report_path='reports/PT002_medical_report_20260416_100551.md'",
+    "timestamp": "2026-04-16T10:05:51.421703"
+  },
+  {
+    "event": "agent_end",
+    "agent": "MedicalReportAgent",
+    "output_preview": "Report generated: 'reports/PT002_medical_report_20260416_100551.md'. Conditions: 5, Medications: 3.",
+    "duration_seconds": 0.0,
+    "timestamp": "2026-04-16T10:05:51.421972"
+  }
+]

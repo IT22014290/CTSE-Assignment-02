@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-04-16T10:26:21.572444",
+  "patient_id": "PT002",
+  "patient_name": "Roshan Fernando",
+  "risk_level": "low",
+  "top_diagnosis": "Urinary Tract Infection",
+  "top_confidence_pct": 54.5,
+  "emergency_flags": [],
+  "total_conditions_identified": 5,
+  "total_medications_recommended": 3,
+  "total_contraindicated": 1,
+  "executive_summary": "Patient Roshan Fernando (ID: PT002) was assessed by the Healthcare Multi-Agent System. The clinical symptom analysis identified 'Urinary Tract Infection' as the most probable diagnosis (confidence: 54.5%). The overall patient risk level has been classified as 'LOW'. A total of 3 medication(s) have been recommended after allergy and interaction screening. No immediate emergency indicators were detected. This report should be reviewed and validated by a licensed clinician before any treatment is administered.",
+  "report_path": "reports/PT002_medical_report_20260416_102621.md"
+}

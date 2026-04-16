@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-04-16T10:06:04.850018",
+  "patient_id": "PT001",
+  "patient_name": "Amara Perera",
+  "risk_level": "critical",
+  "top_diagnosis": "Influenza",
+  "top_confidence_pct": 57.1,
+  "emergency_flags": [
+    "headache",
+    "high fever",
+    "chills"
+  ],
+  "total_conditions_identified": 5,
+  "total_medications_recommended": 3,
+  "total_contraindicated": 1,
+  "executive_summary": "Patient Amara Perera (ID: PT001) was assessed by the Healthcare Multi-Agent System. The clinical symptom analysis identified 'Influenza' as the most probable diagnosis (confidence: 57.1%). The overall patient risk level has been classified as 'CRITICAL'. A total of 3 medication(s) have been recommended after allergy and interaction screening. URGENT ATTENTION IS REQUIRED — one or more emergency indicators were detected. This report should be reviewed and validated by a licensed clinician before any treatment is administered.",
+  "report_path": "reports/PT001_medical_report_20260416_100604.md"
+}

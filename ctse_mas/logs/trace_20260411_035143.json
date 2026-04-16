@@ -1,0 +1,24 @@
+{
+  "file_path": "sample.py",
+  "language": "python",
+  "raw_bugs": [],
+  "security_issues": [],
+  "suggested_fixes": [],
+  "total_issues_found": 0,
+  "total_fixes_applied": 0,
+  "pipeline_start": "2026-04-11T03:51:43.347520",
+  "pipeline_end": "2026-04-11T03:51:43.350049",
+  "agent_logs": [
+    {
+      "agent": "ReportGeneratorAgent",
+      "action": "Report generation \u2014 synthesize all agent outputs into a structured Markdown report.",
+      "input": "bugs=0, sec=0",
+      "output": "Report generated: /home/claude/ctse_mas/reports/report_sample_py_20260411_035143.md. Bugs: 0, Security: 0, Fixes: 0.",
+      "tools": [
+        "report_generator"
+      ],
+      "status": "success",
+      "timestamp": "2026-04-11T03:51:43.349311"
+    }
+  ]
+}
