@@ -12,7 +12,7 @@ A locally-hosted **Multi-Agent System (MAS)** that automates the full patient-ca
 | IT22248244 | Pandithasundara N B | PatientIntakeAgent | `tool_patient_reader` |
 | IT22014290 | Samishka H T | SymptomAnalyzerAgent | `tool_symptom_analyzer` |
 | IT22333148 | Wijerathne C G T N | TreatmentPlannerAgent | `tool_medication_recommender` |
-| TBD | TBD | MedicalReportAgent | `tool_report_generator` |
+| All members | All members | MedicalReportAgent | `tool_report_generator` |
 
 ---
 
@@ -50,7 +50,7 @@ Patient JSON File
            ▼
 ┌──────────────────────────┐
 │   MedicalReportAgent     │  ← Tool: tool_report_generator
-│   (TBD)                  │    Generates final Markdown report
+│   (All members)                  │    Generates final Markdown report
 └──────────────────────────┘
            │
            ▼
@@ -78,13 +78,13 @@ ctse_mas/
 │   ├── agent_patient_intake.py           # Agent 1 (IT22248244)
 │   ├── agent_symptom_analyzer.py         # Agent 2 (IT22014290)
 │   ├── agent_treatment_planner.py        # Agent 3 (IT22333148)
-│   └── agent_report_generator.py         # Agent 4 (TBD)
+│   └── agent_report_generator.py         # Agent 4 (All)
 │
 ├── tools/
 │   ├── tool_patient_reader.py            # Tool 1 (IT22248244)
 │   ├── tool_symptom_analyzer.py          # Tool 2 (IT22014290)
 │   ├── tool_medication_recommender.py    # Tool 3 (IT22333148)
-│   └── tool_report_generator.py          # Tool 4 (TBD)
+│   └── tool_report_generator.py          # Tool 4 (All)
 │
 ├── data/
 │   ├── symptoms_db.json                  # 10 medical conditions
@@ -97,7 +97,7 @@ ctse_mas/
 │   ├── test_agent1_patient_intake.py     # IT22248244 tests (21 tests)
 │   ├── test_agent2_symptom_analyzer.py   # IT22014290 tests (22 tests)
 │   ├── test_agent3_treatment_planner.py  # IT22333148 tests (21 tests)
-│   ├── test_agent4_report_generator.py   # TBD tests (15 tests)
+│   ├── test_agent4_report_generator.py   # All tests (15 tests)
 │   └── test_pipeline_integration.py     # Group integration harness (19 tests)
 │
 ├── reports/                              # Generated Markdown reports
@@ -144,7 +144,7 @@ python -m pytest tests/ -v
 python -m pytest tests/test_agent1_patient_intake.py -v     # IT22248244
 python -m pytest tests/test_agent2_symptom_analyzer.py -v   # IT22014290
 python -m pytest tests/test_agent3_treatment_planner.py -v  # IT22333148
-python -m pytest tests/test_agent4_report_generator.py -v   # TBD
+python -m pytest tests/test_agent4_report_generator.py -v   # All members
 
 # Full pipeline integration tests
 python -m pytest tests/test_pipeline_integration.py -v
@@ -169,7 +169,7 @@ python -m pytest tests/test_pipeline_integration.py -v
 - Screens against patient allergies before recommending
 - Outputs a safe, structured treatment plan with dosage and duration
 
-### Agent 4 — MedicalReportAgent (TBD)
+### Agent 4 — MedicalReportAgent (All)
 - Aggregates all pipeline results from `GlobalState`
 - Generates a structured Markdown report saved to `reports/`
 - Records a full LLMOps execution trace to `logs/`
