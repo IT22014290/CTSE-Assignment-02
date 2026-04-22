@@ -1,0 +1,21 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python cache/bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Runtime outputs
+logs/trace_*.json
+reports/*_medical_report_*.md
+reports/*_medical_report_*.json
+
+# Editor/system
+.vscode/
+.idea/

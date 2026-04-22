@@ -1,198 +1,230 @@
-# CTSE MAS — Healthcare Multi-Agent System
-**SE4010 – Cloud Technologies and Software Engineering | Assignment 2**
+# CTSE MAS - Healthcare Multi-Agent System
 
-A locally-hosted **Multi-Agent System (MAS)** that automates the full patient-care pipeline: intake, symptom analysis, treatment planning, and report generation — all without any cloud API calls.
+SE4010 - Cloud Technologies and Software Engineering | Assignment 2
+
+This repository implements a locally hosted Multi-Agent System (MAS) for healthcare triage and treatment planning. It covers the full assignment flow: patient intake, symptom analysis, treatment planning, and report generation.
 
 ---
 
-## Team Members & Responsibilities
+## Assignment 2 Requirements (from CTSE - Assignment 2.pdf)
 
-| Student ID | Name | Agent | Tool |
-|------------|------|-------|------|
-| IT22248244 | Pandithasundara N B | PatientIntakeAgent | `tool_patient_reader` |
-| IT22014290 | Samishka H T | SymptomAnalyzerAgent | `tool_symptom_analyzer` |
-| IT22333148 | Wijerathne C G T N | TreatmentPlannerAgent | `tool_medication_recommender` |
-| All members | All members | MedicalReportAgent | `tool_report_generator` |
+### Project Goal
+
+Design, build, and run a local Multi-Agent System that solves a complex multi-step problem using autonomous agents, tools, and shared state.
+
+### Technical Constraints (Zero-Cost and Local)
+
+- Must run locally.
+- Must use local SLMs via Ollama (no paid cloud LLM API keys).
+- Must use an open-source orchestrator (LangGraph, CrewAI, or AutoGen).
+
+### Required Architecture Components
+
+1. Multi-agent orchestration with at least 3-4 distinct agents.
+2. Custom Python tools used by agents.
+3. Secure global state handoff between agents.
+4. LLMOps/AgentOps observability (inputs, tool calls, outputs, traces).
+
+### Individual Student Requirements
+
+Each student must:
+
+1. Build one agent (prompt/constraints/persona).
+2. Build one custom Python tool (with type hints and docstrings).
+3. Contribute automated testing/evaluation for that agent.
+
+### Deliverables
+
+1. Source repository with MAS implementation, agents, tools, tests.
+2. Demo video (4-5 minutes, not above 5).
+3. Technical report (4-8 pages, not above 8) including architecture, tools, state management, evaluation, and contribution proof.
 
 ---
 
 ## Problem Domain
 
-**Healthcare — Automated Patient Intake, Diagnosis & Treatment Pipeline**
+Healthcare - automated patient intake, diagnosis support, treatment planning, and medical report generation.
 
-Managing patient records, matching symptoms to conditions, and generating treatment plans are time-intensive tasks prone to human error. This MAS automates the full clinical workflow: load patient data → analyse symptoms → plan treatment → generate report, providing a consistent, structured medical assessment for any patient record.
+Pipeline:
+
+1. Load and validate patient data.
+2. Analyze symptoms and produce differential diagnosis.
+3. Generate allergy-safe treatment recommendations.
+4. Generate final medical report and structured artifacts.
+
+---
+
+## Team Members and Responsibilities
+
+| Student ID | Name | Agent | Tool |
+| ---------- | ---- | ----- | ---- |
+| IT22248244 | Pandithasundara N B | PatientIntakeAgent | tool_patient_reader |
+| IT22014290 | Samishka H T | SymptomAnalyzerAgent | tool_symptom_analyzer |
+| IT22333148 | Wijerathne C G T N | TreatmentPlannerAgent | tool_medication_recommender |
+| All members | All members | MedicalReportAgent | tool_report_generator |
 
 ---
 
 ## System Architecture
 
-```
+```text
 Patient JSON File
-        │
-        ▼
-┌────────────────────────┐
-│   PatientIntakeAgent   │  ← Tool: tool_patient_reader
-│   (IT22248244)         │    Validates & loads patient record
-└──────────┬─────────────┘
-           │ GlobalState (patient_info, is_valid, validation_errors)
-           ▼
-┌────────────────────────────┐
-│   SymptomAnalyzerAgent     │  ← Tool: tool_symptom_analyzer
-│   (IT22014290)             │    Matches symptoms → probable conditions
-└──────────┬─────────────────┘
-           │ GlobalState (probable_conditions, confidence_scores)
-           ▼
-┌─────────────────────────────┐
-│   TreatmentPlannerAgent     │  ← Tool: tool_medication_recommender
-│   (IT22333148)              │    Allergy-screened medication plan
-└──────────┬──────────────────┘
-           │ GlobalState (treatment_plan, recommended_medications)
-           ▼
-┌──────────────────────────┐
-│   MedicalReportAgent     │  ← Tool: tool_report_generator
-│   (All members)                  │    Generates final Markdown report
-└──────────────────────────┘
-           │
-           ▼
-  reports/report_*.md  +  logs/trace_*.json
+        |
+        +-------------------------------------+
+        |                                     |
+        v                                     v
+    main.py                          main_langgraph.py
+ (Sequential)                        (LangGraph DAG)
+        |                                     |
+        v                                     v
+PatientIntakeAgent ----------------> intake node
+        |
+        v
+SymptomAnalyzerAgent --------------> symptom node
+        |
+        v
+TreatmentPlannerAgent -------------> treatment node
+        |
+        v
+MedicalReportAgent -----------------> report node
+        |
+        v
+reports/*.md + reports/*.json + logs/trace_*.json
 ```
 
-**Orchestration Pattern:** Sequential Coordinator-Worker pipeline. Each agent reads from and writes to the shared `GlobalState` object — no data is lost between handoffs.
+Orchestration modes:
+
+- Sequential orchestrator: main.py
+- LangGraph orchestrator: main_langgraph.py
+
+---
+
+## Assignment Compliance Mapping
+
+### 1) Multi-Agent Orchestration (3-4 agents)
+
+- Agents are implemented in:
+  - agents/agent_patient_intake.py
+  - agents/agent_symptom_analyzer.py
+  - agents/agent_treatment_planner.py
+  - agents/agent_report_generator.py
+- Sequential orchestration: main.py
+- LangGraph orchestration: main_langgraph.py
+
+### 2) Tool Usage (custom Python tools)
+
+- tools/tool_patient_reader.py
+- tools/tool_symptom_analyzer.py
+- tools/tool_medication_recommender.py
+- tools/tool_report_generator.py
+
+### 3) State Management
+
+- Shared state model: config/state.py
+- State is passed and enriched across all agents.
+
+### 4) Observability / Tracing
+
+- Logging and trace utilities: config/observability.py
+- Execution traces generated in logs/trace_*.json
+- Pipeline outputs generated in reports/*.md and reports/*.json
+
+### 5) Individual Agent Testing and Group Integration
+
+- Per-agent tests:
+  - tests/test_agent1_patient_intake.py
+  - tests/test_agent2_symptom_analyzer.py
+  - tests/test_agent3_treatment_planner.py
+  - tests/test_agent4_report_generator.py
+- End-to-end integration:
+  - tests/test_pipeline_integration.py
 
 ---
 
 ## Project Structure
 
-```
-ctse_mas/
-├── main.py                               # Pipeline entry point
-├── sample_buggy_code.py                  # Demo patient record (buggy version)
+```text
+.
+├── README.md
+├── main.py
+├── main_langgraph.py
 ├── requirements.txt
 ├── conftest.py
-│
-├── config/
-│   ├── state.py                          # GlobalState dataclass + reset_state()
-│   └── observability.py                  # LLMOps logging & Rich console tracing
-│
 ├── agents/
-│   ├── agent_patient_intake.py           # Agent 1 (IT22248244)
-│   ├── agent_symptom_analyzer.py         # Agent 2 (IT22014290)
-│   ├── agent_treatment_planner.py        # Agent 3 (IT22333148)
-│   └── agent_report_generator.py         # Agent 4 (All)
-│
 ├── tools/
-│   ├── tool_patient_reader.py            # Tool 1 (IT22248244)
-│   ├── tool_symptom_analyzer.py          # Tool 2 (IT22014290)
-│   ├── tool_medication_recommender.py    # Tool 3 (IT22333148)
-│   └── tool_report_generator.py          # Tool 4 (All)
-│
+├── config/
 ├── data/
-│   ├── symptoms_db.json                  # 10 medical conditions
-│   ├── medications_db.json               # 14 medications
-│   └── patients/
-│       ├── patient_PT001.json            # Influenza case
-│       └── patient_PT002.json            # UTI case (with comorbidities)
-│
 ├── tests/
-│   ├── test_agent1_patient_intake.py     # IT22248244 tests (21 tests)
-│   ├── test_agent2_symptom_analyzer.py   # IT22014290 tests (22 tests)
-│   ├── test_agent3_treatment_planner.py  # IT22333148 tests (21 tests)
-│   ├── test_agent4_report_generator.py   # All tests (15 tests)
-│   └── test_pipeline_integration.py     # Group integration harness (19 tests)
-│
-├── reports/                              # Generated Markdown reports
-└── logs/                                 # LLMOps JSON traces
+├── reports/
+└── logs/
 ```
 
 ---
 
-## Setup & Installation
+## Setup and Installation
 
 ### Prerequisites
-- Python 3.10+
-- No paid API keys required — runs 100% locally
 
-### Create Virtual Environment & Install Dependencies
+- Python 3.9+ (3.10+ recommended)
+- Ollama (required by assignment for local SLM reasoning)
+
+### Install Dependencies
 
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate      # Windows: .venv\Scripts\activate
-pip install -r ctse_mas/requirements.txt
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
 ```
 
-### Run the Pipeline
+### Ollama Setup (Assignment Requirement)
 
 ```bash
-cd ctse_mas
-
-# Process the default Influenza patient
-python main.py --patient data/patients/patient_PT001.json
-
-# Process the UTI patient (with comorbidities)
-python main.py --patient data/patients/patient_PT002.json
+ollama pull llama3.2:3b
+ollama serve
 ```
 
-### Run All Tests
+Note: This codebase is fault-tolerant and still runs if Ollama is unavailable, but assignment demonstrations should include local SLM-enabled execution.
+
+---
+
+## Run the System
 
 ```bash
-cd ctse_mas
+# Sequential pipeline
+python3 main.py --patient data/patients/patient_PT001.json
 
-# Full test suite (98 tests)
-python -m pytest tests/ -v
-
-# Individual agent tests
-python -m pytest tests/test_agent1_patient_intake.py -v     # IT22248244
-python -m pytest tests/test_agent2_symptom_analyzer.py -v   # IT22014290
-python -m pytest tests/test_agent3_treatment_planner.py -v  # IT22333148
-python -m pytest tests/test_agent4_report_generator.py -v   # All members
-
-# Full pipeline integration tests
-python -m pytest tests/test_pipeline_integration.py -v
+# LangGraph pipeline
+python3 main_langgraph.py --patient data/patients/patient_PT001.json
 ```
 
 ---
 
-## What Each Agent Does
+## Run Tests
 
-### Agent 1 — PatientIntakeAgent (IT22248244)
-- Loads and validates the patient JSON record
-- Checks required fields, age range, blood type, vital signs
-- Populates `GlobalState` with patient demographics, symptoms, and vitals
-
-### Agent 2 — SymptomAnalyzerAgent (IT22014290)
-- Matches patient symptoms against `symptoms_db.json` (10 conditions)
-- Scores and ranks probable conditions by confidence percentage
-- Detected conditions include: Influenza, UTI, Pneumonia, COVID-19, Diabetes, and more
-
-### Agent 3 — TreatmentPlannerAgent (IT22333148)
-- Recommends medications from `medications_db.json` (14 medications)
-- Screens against patient allergies before recommending
-- Outputs a safe, structured treatment plan with dosage and duration
-
-### Agent 4 — MedicalReportAgent (All)
-- Aggregates all pipeline results from `GlobalState`
-- Generates a structured Markdown report saved to `reports/`
-- Records a full LLMOps execution trace to `logs/`
+```bash
+python3 -m pytest tests -v
+```
 
 ---
 
-## Output Files
+## Output Artifacts
 
-| File | Description |
-|------|-------------|
-| `reports/report_*.md` | Full patient medical report in Markdown |
-| `logs/trace_*.json` | LLMOps execution trace (all agent actions, tool calls, timestamps) |
+- Markdown reports: reports/*.md
+- Structured report exports: reports/*.json
+- Execution traces: logs/trace_*.json
 
 ---
 
-## Technical Requirements Met
+## Submission Checklist (Assignment 2)
 
-| Requirement | Implementation |
-|-------------|----------------|
-| ✅ 4 Distinct Agents | PatientIntakeAgent, SymptomAnalyzerAgent, TreatmentPlannerAgent, MedicalReportAgent |
-| ✅ Custom Python Tools | 4 tools with type hints, docstrings, and error handling |
-| ✅ State Management | `GlobalState` dataclass passed by reference through all agents |
-| ✅ LLMOps / Observability | `observability.py` logs every agent start/end/tool call + JSON trace |
-| ✅ No Paid APIs | Runs entirely locally — no OpenAI/Anthropic keys needed |
-| ✅ Individual Agent + Tool | Each member owns one agent and one corresponding tool |
-| ✅ Testing & Evaluation | 98 tests: unit, integration, and full end-to-end pipeline |
+1. Repository contains 3-4 agents, tools, orchestration, and tests.
+2. Demo video prepared (4-5 minutes, max 5).
+3. Technical report prepared (4-8 pages, max 8) with:
+   - Problem definition
+   - Architecture and workflow diagram
+   - Agent design and interaction strategy
+   - Tool descriptions and examples
+   - State management design
+   - Testing and evaluation methodology
+   - Contribution proof per student
+   - Repository link

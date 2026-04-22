@@ -1,6 +1,6 @@
 """
 tests/test_agent3_treatment_planner.py
-Member: IT22333148 — Wijerathne C G T N
+Member:
 
 Test suite for the Treatment Planner Agent and its medication_recommender tool.
 Covers:
@@ -12,6 +12,11 @@ Covers:
 """
 
 from __future__ import annotations
+from config.state import reset_state
+from agents.agent_symptom_analyzer import SymptomAnalyzerAgent
+from agents.agent_patient_intake import PatientIntakeAgent
+from agents.agent_treatment_planner import TreatmentPlannerAgent
+from tools.tool_medication_recommender import medication_recommender
 
 import os
 import sys
@@ -20,15 +25,9 @@ import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from tools.tool_medication_recommender import medication_recommender
-from agents.agent_treatment_planner import TreatmentPlannerAgent
-from agents.agent_patient_intake import PatientIntakeAgent
-from agents.agent_symptom_analyzer import SymptomAnalyzerAgent
-from config.state import reset_state
-
 
 class TestMedicationRecommenderTool:
-    """Unit and property tests for medication_recommender (IT22333148)."""
+    """Unit and property tests for medication_recommender"""
 
     def test_returns_all_required_keys(self) -> None:
         """Tool must return all expected top-level keys."""
@@ -62,7 +61,8 @@ class TestMedicationRecommenderTool:
             current_medications=[],
         )
         assert result["success"] is True
-        recommended_names = [m["name"].lower() for m in result["recommended_medications"]]
+        recommended_names = [m["name"].lower()
+                             for m in result["recommended_medications"]]
         assert "amoxicillin" not in recommended_names, (
             "Amoxicillin must not be recommended for a penicillin-allergic patient"
         )
@@ -74,7 +74,8 @@ class TestMedicationRecommenderTool:
             allergies=["penicillin"],
             current_medications=[],
         )
-        contraindicated_text = " ".join(result["contraindicated_medications"]).lower()
+        contraindicated_text = " ".join(
+            result["contraindicated_medications"]).lower()
         assert "amoxicillin" in contraindicated_text, (
             "Amoxicillin exclusion must appear in contraindicated_medications"
         )
@@ -86,7 +87,8 @@ class TestMedicationRecommenderTool:
             allergies=["sulfonamide"],
             current_medications=[],
         )
-        recommended_names = [m["name"].lower() for m in result["recommended_medications"]]
+        recommended_names = [m["name"].lower()
+                             for m in result["recommended_medications"]]
         assert "co-trimoxazole" not in recommended_names
 
     def test_current_medication_not_duplicated(self) -> None:
@@ -96,7 +98,8 @@ class TestMedicationRecommenderTool:
             allergies=[],
             current_medications=["metformin"],
         )
-        recommended_names = [m["name"].lower() for m in result["recommended_medications"]]
+        recommended_names = [m["name"].lower()
+                             for m in result["recommended_medications"]]
         assert "metformin" not in recommended_names, (
             "Must not recommend a medication the patient is already taking"
         )
@@ -255,4 +258,5 @@ class TestTreatmentPlannerAgentIntegration:
     ) -> None:
         """state.total_medications_recommended must equal len(recommended_medications)."""
         state = self._run_up_to_agent3(patient_pt001_path)
-        assert state.total_medications_recommended == len(state.recommended_medications)
+        assert state.total_medications_recommended == len(
+            state.recommended_medications)

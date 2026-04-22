@@ -1,6 +1,6 @@
 """
 tests/test_agent1_patient_intake.py
-Member: IT22248244 — Pandithasundara N B
+Member: 
 
 Test suite for the Patient Intake Agent and its patient_record_reader tool.
 Covers:
@@ -25,7 +25,7 @@ from config.state import reset_state
 
 
 class TestPatientRecordReaderTool:
-    """Unit and property tests for patient_record_reader (IT22248244)."""
+    """Unit and property tests for patient_record_reader."""
 
     def test_returns_all_required_keys(self, valid_patient_file: str) -> None:
         """Tool must return all expected top-level keys."""

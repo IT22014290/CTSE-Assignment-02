@@ -40,7 +40,7 @@ def sample_patient_data() -> dict:
             "emergency_contact": "Next of Kin",
             "emergency_phone": "000-000-0001",
         },
-        "registration_date": "2026-04-16",
+        "registration_date": "2026-04-22",
     }
 
 

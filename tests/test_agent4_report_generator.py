@@ -1,6 +1,6 @@
 """
 tests/test_agent4_report_generator.py
-Member: Student 4 — [Name TBD]
+Member: 
 
 Test suite for the Medical Report Agent and its medical_report_generator tool.
 Covers:
@@ -47,7 +47,7 @@ SAMPLE_PATIENT_INFO = {
         "respiratory_rate_rpm": 18,
         "oxygen_saturation_percent": 98,
     },
-    "registration_date": "2026-04-16",
+    "registration_date": "2026-04-22",
 }
 
 SAMPLE_VALIDATION_REPORT = {
@@ -55,7 +55,7 @@ SAMPLE_VALIDATION_REPORT = {
     "validation_errors": [],
     "validation_warnings": [],
     "field_statuses": {},
-    "loaded_at": "2026-04-16T12:00:00",
+    "loaded_at": "2026-04-22T12:00:00",
 }
 
 SAMPLE_CONDITIONS = [
@@ -90,7 +90,7 @@ SAMPLE_MEDICATIONS = [
 
 
 class TestMedicalReportGeneratorTool:
-    """Unit tests for medical_report_generator (Student 4)."""
+    """Unit tests for medical_report_generator."""
 
     def test_returns_all_required_keys(self, tmp_path) -> None:
         """Tool must return all required keys."""

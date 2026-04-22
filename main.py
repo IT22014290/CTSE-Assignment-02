@@ -9,10 +9,10 @@ Sequential Pipeline Architecture:
     ──►  TreatmentPlannerAgent  ──►  MedicalReportAgent
 
 Student Contributions:
-    Agent 1 / Tool 1: IT22248244 — Pandithasundara N B   (PatientIntakeAgent)
-    Agent 2 / Tool 2: IT22014290 — Samishka H T          (SymptomAnalyzerAgent)
-    Agent 3 / Tool 3: IT22333148 — Wijerathne C G T N    (TreatmentPlannerAgent)
-    Agent 4 / Tool 4: Student 4  — [Name TBD]            (MedicalReportAgent)
+    Agent 1 / Tool 1: PatientIntakeAgent
+    Agent 2 / Tool 2: SymptomAnalyzerAgent
+    Agent 3 / Tool 3: TreatmentPlannerAgent
+    Agent 4 / Tool 4: MedicalReportAgent
 
 Usage:
     python main.py --patient data/patients/patient_PT001.json
@@ -20,21 +20,19 @@ Usage:
 """
 
 from __future__ import annotations
+from rich.panel import Panel
+from agents.agent_report_generator import MedicalReportAgent
+from agents.agent_treatment_planner import TreatmentPlannerAgent
+from agents.agent_symptom_analyzer import SymptomAnalyzerAgent
+from agents.agent_patient_intake import PatientIntakeAgent
+from config.observability import console
+from config.state import reset_state
 
 import argparse
 import os
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
-
-from config.state import reset_state
-from config.observability import console
-from agents.agent_patient_intake import PatientIntakeAgent
-from agents.agent_symptom_analyzer import SymptomAnalyzerAgent
-from agents.agent_treatment_planner import TreatmentPlannerAgent
-from agents.agent_report_generator import MedicalReportAgent
-
-from rich.panel import Panel
 
 
 def run_pipeline(patient_file_path: str) -> None:

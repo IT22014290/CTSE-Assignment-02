@@ -69,7 +69,7 @@ class GlobalState:
     # ── Pipeline Input ────────────────────────────────────────────────────────
     patient_file_path: str = ""
 
-    # ── Agent 1 — Patient Intake (IT22248244 · Pandithasundara N B) ──────────
+    # ── Agent 1 — Patient Intake ──────────
     patient_info: Dict[str, Any] = field(default_factory=dict)
     """Structured patient record loaded from the JSON input file."""
 
@@ -82,7 +82,7 @@ class GlobalState:
     validation_errors: List[str] = field(default_factory=list)
     """Human-readable descriptions of any validation failures found."""
 
-    # ── Agent 2 — Symptom Analyzer (IT22014290 · Samishka H T) ──────────────
+    # ── Agent 2 — Symptom Analyzer ──────────────
     possible_conditions: List[Dict[str, Any]] = field(default_factory=list)
     """
     Ranked list of potential medical conditions, each containing:
@@ -98,7 +98,7 @@ class GlobalState:
     top_diagnosis: str = ""
     """Name of the highest-confidence condition from Agent 2's analysis."""
 
-    # ── Agent 3 — Treatment Planner (IT22333148 · Wijerathne C G T N) ────────
+    # ── Agent 3 — Treatment Planner ────────
     treatment_plan: Dict[str, Any] = field(default_factory=dict)
     """
     Structured treatment plan containing:
@@ -115,7 +115,7 @@ class GlobalState:
     lifestyle_recommendations: List[str] = field(default_factory=list)
     """Non-pharmacological advice for the patient's condition."""
 
-    # ── Agent 4 — Medical Report Generator (Student 4 Placeholder) ───────────
+    # ── Agent 4 — Medical Report Generator ───────────
     final_report: str = ""
     """Full Markdown text of the generated medical report."""
 
@@ -124,6 +124,19 @@ class GlobalState:
 
     executive_summary: str = ""
     """One-paragraph plain-language summary suitable for non-clinical stakeholders."""
+
+    # ── LLM Reasoning Commentary (Ollama) ────────────────────────────────────
+    llm_intake_reasoning: str = ""
+    """Clinical commentary from Ollama LLM on the patient intake validation result."""
+
+    llm_symptom_reasoning: str = ""
+    """Clinical commentary from Ollama LLM on the differential diagnosis findings."""
+
+    llm_treatment_reasoning: str = ""
+    """Clinical commentary from Ollama LLM on the treatment plan safety and rationale."""
+
+    llm_report_reasoning: str = ""
+    """Clinical commentary from Ollama LLM on the final report and executive summary."""
 
     # ── LLMOps / AgentOps Observability ──────────────────────────────────────
     agent_logs: List[AgentLog] = field(default_factory=list)
@@ -188,6 +201,10 @@ class GlobalState:
             "total_medications_recommended": self.total_medications_recommended,
             "report_path": self.report_path,
             "executive_summary": self.executive_summary,
+            "llm_intake_reasoning":    self.llm_intake_reasoning,
+            "llm_symptom_reasoning":   self.llm_symptom_reasoning,
+            "llm_treatment_reasoning": self.llm_treatment_reasoning,
+            "llm_report_reasoning":    self.llm_report_reasoning,
             "agent_logs": [
                 {
                     "agent": log.agent_name,

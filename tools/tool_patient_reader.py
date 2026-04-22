@@ -1,6 +1,6 @@
 """
 Tool: patient_record_reader
-Member: IT22248244 — Pandithasundara N B
+Member: 
 Agent:  Patient Intake Agent
 
 Reads a patient JSON file from disk, validates every required field, and

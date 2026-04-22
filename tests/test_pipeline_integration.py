@@ -1,6 +1,7 @@
 """
 tests/test_pipeline_integration.py
-Group Integration Tests — All Members
+Group Integration Tests for the Full 4-Agent Pipeline
+Member:
 
 End-to-end integration tests that validate the complete 4-agent pipeline
 as a unified system. These tests confirm that:

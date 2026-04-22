@@ -1,6 +1,6 @@
 """
 Tool: medication_recommender
-Member: IT22333148 — Wijerathne C G T N
+Member: 
 Agent:  Treatment Planner Agent
 
 Queries the local medications knowledge base (medications_db.json) to

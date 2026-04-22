@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Python virtual environments
+.venv/
+venv/
+
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Test/build artifacts
+.coverage
+htmlcov/
+
+# Runtime outputs
+logs/trace_*.json
+reports/*_medical_report_*.md
+reports/*_medical_report_*.json
+
+# Local/editor noise
+.vscode/
+.idea/

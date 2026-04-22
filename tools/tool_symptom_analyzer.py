@@ -1,6 +1,6 @@
 """
 Tool: symptom_analyzer
-Member: IT22014290 — Samishka H T
+Member: 
 Agent:  Symptom Analyzer Agent
 
 Matches a patient's reported symptoms against a local medical knowledge base

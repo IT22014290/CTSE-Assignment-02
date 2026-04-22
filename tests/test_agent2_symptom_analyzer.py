@@ -1,6 +1,6 @@
 """
 tests/test_agent2_symptom_analyzer.py
-Member: IT22014290 — Samishka H T
+Member: 
 
 Test suite for the Symptom Analyzer Agent and its symptom_analyzer tool.
 Covers:
@@ -25,7 +25,7 @@ from config.state import reset_state
 
 
 class TestSymptomAnalyzerTool:
-    """Unit and property tests for symptom_analyzer (IT22014290)."""
+    """Unit and property tests for symptom_analyzer."""
 
     def test_returns_all_required_keys(self) -> None:
         """Tool must always return all required top-level keys."""
